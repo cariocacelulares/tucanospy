@@ -36,9 +36,7 @@ module.exports = {
 
   create(req, res) {
     return Marketplace
-      .create({
-        title: req.body.title,
-      })
+      .create(req.body, { fields: Object.keys(req.body) })
       .then(resp => res.status(201).send(resp))
       .catch(error => res.status(400).send(error));
   },
