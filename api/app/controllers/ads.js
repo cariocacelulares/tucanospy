@@ -1,14 +1,13 @@
-const Ad          = require('../models').Ad;
-const Marketplace = require('../models').Marketplace;
+const Ad            = require('../models').Ad;
+const Marketplace   = require('../models').Marketplace;
 
 module.exports = {
   list(req, res) {
     return Ad
       .findAll({
         include: [{
-          model: Marketplace,
-          as: 'marketplaces',
-        }],
+          model: Marketplace
+        }]
       })
       .then(todo => res.status(200).send(todo))
       .catch(error => res.status(400).send(error));
@@ -18,9 +17,8 @@ module.exports = {
     return Ad
       .findById(req.params.adId, {
         include: [{
-          model: Marketplace,
-          as: 'marketplaces',
-        }],
+          model: Marketplace
+        }]
       })
       .then(ad => {
         if (!ad) {
@@ -46,9 +44,8 @@ module.exports = {
     return Ad
       .findById(req.params.adId, {
         include: [{
-          model: Marketplace,
-          as: 'marketplaces',
-        }],
+          model: Marketplace
+        }]
       })
       .then(ad => {
         if (!ad) {

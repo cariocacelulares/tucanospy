@@ -8,24 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      adId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'Ads',
-          key: 'id',
-          as: 'adId',
-        },
-      },
-      url: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      priceTag: {
-        type: Sequelize.STRING
-      },
-      priceMultTag: {
+      title: {
         type: Sequelize.STRING
       },
       createdAt: {

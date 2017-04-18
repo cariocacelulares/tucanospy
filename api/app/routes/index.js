@@ -1,4 +1,4 @@
-const adsController = require('../controllers').ads;
+const adsController          = require('../controllers').ads;
 const marketplacesController = require('../controllers').marketplaces;
 
 module.exports = (app) => {
@@ -6,13 +6,19 @@ module.exports = (app) => {
     message: 'Welcome to TucanoSpy API!',
   }));
 
-  app.get('/ads'         , adsController.list);
-  app.get('/ads/:adId'   , adsController.retrieve);
-  app.post('/ads'        , adsController.create);
-  app.put('/ads/:adId'   , adsController.update);
-  app.delete('/ads/:adId', adsController.destroy);
+  app
+    .get('/ads'         , adsController.list)
+    .get('/ads/:adId'   , adsController.retrieve)
+    .post('/ads'        , adsController.create)
+    .put('/ads/:adId'   , adsController.update)
+    .delete('/ads/:adId', adsController.destroy)
 
-  app.post('/ads/:adId/marketplaces', marketplacesController.create);
-  app.put('/ads/:adId/marketplaces/:marketplaceId', marketplacesController.update);
-  app.delete('/ads/:adId/marketplaces/:marketplaceId', marketplacesController.destroy);
+    .get('/marketplaces'                  , marketplacesController.list)
+    .get('/marketplaces/:marketplaceId'   , marketplacesController.retrieve)
+    .post('/marketplaces'                 , marketplacesController.create)
+    .put('/marketplaces/:marketplaceId'   , marketplacesController.update)
+    .delete('/marketplaces/:marketplaceId', marketplacesController.destroy)
+
+
+  ;
 };

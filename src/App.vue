@@ -19,13 +19,19 @@ export default {
   * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
 
   body {
     font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: #333;
-    color: #fff;
+    background: #f5f5f5;
+    color: #666;
+  }
+
+  #app {
+    margin: 50px;
   }
 </style>

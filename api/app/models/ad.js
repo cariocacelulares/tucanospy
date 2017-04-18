@@ -5,10 +5,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        Ad.hasMany(models.Marketplace, {
-          foreignKey: 'adId',
-          as: 'marketplaces'
-        });
+        Ad.belongsToMany(models.Marketplace, { through: 'AdMarketplace' });
       }
     }
   });
